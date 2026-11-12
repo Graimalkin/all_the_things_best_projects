@@ -1,0 +1,10 @@
+# ESPHome
+secrets.yaml
+.esphome/
+
+# Editor and OS noise
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.bak
