@@ -22,7 +22,7 @@ Outside size: **88 × 82 × 38 mm**. The micro-USB cable plugs into the **back w
 - `spooky_lid.stl`: lid (same lid for either box)
 - `previews/`: renders
 
-**The STLs are the v2 export.** The `.scad` has one later tweak (v3): the ESP32 pocket is 1 mm shorter and the snap clips are thicker with a gusset at the root. If your board slides around in the v2 print, re-export from the `.scad`.
+The STLs are exported from the v3 `.scad` with OpenSCAD 2021.01. OpenSCAD warns that the box "may not be a valid 2-manifold" because two edges are shared by parts that meet along a line. The v2 files had more of those edges and sliced and printed fine.
 
 ## Design history
 
