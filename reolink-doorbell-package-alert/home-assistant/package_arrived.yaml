@@ -1,0 +1,43 @@
+# Package Arrived: phone notification with a doorbell snapshot
+#
+# When a Reolink doorbell's package sensor turns on, save a snapshot from the
+# doorbell camera and send it to your phone through the Home Assistant
+# Companion app.
+#
+# To use it: Settings > Automations & scenes > Create automation >
+# Create new automation, open the three-dot menu, choose "Edit in YAML" and
+# paste everything below the dashed line.
+#
+# Change three things to match your setup:
+#   binary_sensor.front_doorbell_package  -> your doorbell's package sensor
+#   camera.front_doorbell_fluent          -> your doorbell's camera entity
+#   notify.mobile_app_your_phone          -> the notify action for your phone
+#
+# The snapshot is saved to /config/www/, which Home Assistant serves at
+# /local/ WITHOUT authentication. See the README for a private alternative.
+# ---------------------------------------------------------------------------
+
+alias: Package Arrived
+description: Phone notification with a doorbell snapshot when the Reolink doorbell detects a package.
+triggers:
+  - trigger: state
+    entity_id:
+      - binary_sensor.front_doorbell_package
+    from:
+      - "off"
+    to:
+      - "on"
+conditions: []
+actions:
+  - action: camera.snapshot
+    target:
+      entity_id: camera.front_doorbell_fluent
+    data:
+      filename: /config/www/front_doorbell.jpg
+  - action: notify.mobile_app_your_phone
+    data:
+      title: Front door
+      message: A package has arrived!
+      data:
+        image: /local/front_doorbell.jpg
+mode: single

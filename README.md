@@ -9,11 +9,13 @@ These are things running in my own house, on Home Assistant and ESPHome.
 | Build | What it is | Write-up |
 |---|---|---|
 | [Halloween yard speakers](halloween-yard-speakers/) | ESP32 + NS4168 I2S amp as a Home Assistant media player, about $20 a zone, with a printable jack-o'-lantern case | [How I Built Cheap ESP32 Yard Speakers for Halloween Sound Effects](https://www.allthethings.best/how-i-built-cheap-esp32-yard-speakers-for-halloween-sound-effects/) |
+| [Reolink doorbell package alert](reolink-doorbell-package-alert/) | Home Assistant automation that sends your phone a snapshot when a Reolink doorbell detects a package | Coming soon |
 
 ## How each folder is laid out
 
 - `README.md`: parts, wiring, quick start and troubleshooting
 - `esphome/`: device YAML and a `secrets.example.yaml`
+- `home-assistant/`: automations and other Home Assistant YAML
 - `case/`: OpenSCAD source and STLs, where the build has a printed part
 - `images/`: photos and diagrams
 
